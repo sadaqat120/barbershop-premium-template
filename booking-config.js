@@ -6,4 +6,4 @@
  *
  * Leave empty until you paste the real link; the booking page will show short instructions instead of a broken embed.
  */
-window.PRIME_CUTS_CALENDLY = "https://calendly.com/app/scheduling/meeting_types/user/me";
+window.PRIME_CUTS_CALENDLY = "https://calendly.com/";
