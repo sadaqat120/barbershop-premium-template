@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking | Prime Cuts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html">Prime Cuts</a>
+      <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="booking.html">Booking</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow">Booking</p>
+        <h1>Book Your Slot in Seconds</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid two">
+        <div class="card">
+          <h2>How it works</h2>
+          <ol>
+            <li>Select your preferred service.</li>
+            <li>Pick a free date and time slot.</li>
+            <li>Confirm your appointment details.</li>
+          </ol>
+          <p>Calendly handles time-slot availability and prevents double bookings automatically.</p>
+          <a class="btn btn-primary" href="https://calendly.com/sadaqat120" target="_blank" rel="noreferrer">Open Booking in New Tab</a>
+        </div>
+        <div class="card">
+          <h2>Embedded Booking</h2>
+          <p class="small">Book directly below. If your browser blocks the embed, use the button on the left.</p>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/sadaqat120" style="min-width:320px;height:640px;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap"><p>Prime Cuts Barber Shop</p><p>Booking powered by Calendly.</p></div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js"></script>
+</body>
+</html>
