@@ -87,6 +87,18 @@ h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 0.7rem; }
 .calendly-setup-hint { margin-top: 0.75rem; }
 .calendly-missing-msg { margin-top: 1rem; background: var(--panel); border: 1px dashed var(--accent); }
 .calendly-missing-msg code { color: var(--accent); font-size: 0.85em; }
+.booking-left, .booking-right { min-height: 100%; }
+.booking-steps { margin: 0.4rem 0 1rem 1.2rem; padding: 0; }
+.booking-steps li { margin-bottom: 0.45rem; color: #e7e7ea; }
+.booking-note {
+  margin: 0.9rem 0 1rem;
+  background: #1f2026;
+  border: 1px solid #3a3c44;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+}
 
 .site-footer { border-top: 1px solid var(--line); margin-top: 2rem; }
 .footer-wrap { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; color: var(--muted); font-size: 0.92rem; }

@@ -34,18 +34,21 @@
 
     <section class="section">
       <div class="container grid two">
-        <div class="card">
+        <div class="card booking-left">
           <h2>How it works</h2>
-          <ol>
+          <ol class="booking-steps">
             <li>Choose the service you want.</li>
             <li>Pick a free time that fits you.</li>
             <li>Confirm your details — you will get a confirmation from Calendly.</li>
           </ol>
           <p>Calendly keeps your calendar in sync and avoids double bookings.</p>
+          <div class="booking-note">
+            <strong>Tip:</strong> If the inline calendar is blocked by browser privacy settings, use the button below.
+          </div>
           <a id="calendly-external-btn" class="btn btn-primary" href="https://calendly.com" target="_blank" rel="noreferrer">Open booking in a new tab</a>
           <p id="calendly-setup-hint" class="small calendly-setup-hint" hidden></p>
         </div>
-        <div class="card">
+        <div class="card booking-right">
           <h2>Book inline</h2>
           <p class="small">If the calendar does not load, use the button on the left or allow third‑party scripts for this site.</p>
           <div id="calendly-inline-container" class="calendly-inline-container" aria-label="Booking calendar"></div>
@@ -71,15 +74,17 @@
       var missing = document.getElementById('calendly-missing-msg');
       var hint = document.getElementById('calendly-setup-hint');
 
-      if (!raw) {
+      var isValidEventUrl = /^https:\/\/calendly\.com\/[^\/\s]+\/[^\/\s]+/i.test(raw);
+
+      if (!raw || !isValidEventUrl) {
         if (missing) missing.hidden = false;
         if (container) container.style.display = 'none';
         if (hint) {
           hint.hidden = false;
-          hint.textContent = 'After you add your link in booking-config.js, reload this page.';
+          hint.textContent = 'Paste a full event link (example: https://calendly.com/username/30min) in booking-config.js, then reload.';
         }
         if (btn) {
-          btn.href = 'https://calendly.com';
+          btn.href = raw && /^https:\/\/calendly\.com/i.test(raw) ? raw : 'https://calendly.com';
         }
         return;
       }
