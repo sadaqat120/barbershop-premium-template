@@ -37,17 +37,22 @@
         <div class="card">
           <h2>How it works</h2>
           <ol>
-            <li>Select your preferred service.</li>
-            <li>Pick a free date and time slot.</li>
-            <li>Confirm your appointment details.</li>
+            <li>Choose the service you want.</li>
+            <li>Pick a free time that fits you.</li>
+            <li>Confirm your details — you will get a confirmation from Calendly.</li>
           </ol>
-          <p>Calendly handles time-slot availability and prevents double bookings automatically.</p>
-          <a class="btn btn-primary" href="https://calendly.com/sadaqat120" target="_blank" rel="noreferrer">Open Booking in New Tab</a>
+          <p>Calendly keeps your calendar in sync and avoids double bookings.</p>
+          <a id="calendly-external-btn" class="btn btn-primary" href="https://calendly.com" target="_blank" rel="noreferrer">Open booking in a new tab</a>
+          <p id="calendly-setup-hint" class="small calendly-setup-hint" hidden></p>
         </div>
         <div class="card">
-          <h2>Embedded Booking</h2>
-          <p class="small">Book directly below. If your browser blocks the embed, use the button on the left.</p>
-          <div class="calendly-inline-widget" data-url="https://calendly.com/sadaqat120" style="min-width:320px;height:640px;"></div>
+          <h2>Book inline</h2>
+          <p class="small">If the calendar does not load, use the button on the left or allow third‑party scripts for this site.</p>
+          <div id="calendly-inline-container" class="calendly-inline-container" aria-label="Booking calendar"></div>
+          <div id="calendly-missing-msg" class="card calendly-missing-msg" hidden>
+            <p><strong>Set your Calendly link once.</strong> Open <code>booking-config.js</code> and paste the link from Calendly (Event type → Share → Copy link).</p>
+            <p class="small">That link is not the same as your GitHub username. It always looks like <code>https://calendly.com/…</code> from inside your Calendly account.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -57,7 +62,43 @@
     <div class="container footer-wrap"><p>Prime Cuts Barber Shop</p><p>Booking powered by Calendly.</p></div>
   </footer>
 
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="booking-config.js"></script>
+  <script>
+    (function () {
+      var raw = typeof window.PRIME_CUTS_CALENDLY === 'string' ? window.PRIME_CUTS_CALENDLY.trim() : '';
+      var btn = document.getElementById('calendly-external-btn');
+      var container = document.getElementById('calendly-inline-container');
+      var missing = document.getElementById('calendly-missing-msg');
+      var hint = document.getElementById('calendly-setup-hint');
+
+      if (!raw) {
+        if (missing) missing.hidden = false;
+        if (container) container.style.display = 'none';
+        if (hint) {
+          hint.hidden = false;
+          hint.textContent = 'After you add your link in booking-config.js, reload this page.';
+        }
+        if (btn) {
+          btn.href = 'https://calendly.com';
+        }
+        return;
+      }
+
+      if (btn) btn.href = raw;
+      if (missing) missing.hidden = true;
+      if (container) container.style.minHeight = '640px';
+
+      var script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = function () {
+        if (typeof Calendly !== 'undefined' && Calendly.initInlineWidget) {
+          Calendly.initInlineWidget({ url: raw, parentElement: container });
+        }
+      };
+      document.body.appendChild(script);
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
