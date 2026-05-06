@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Prime Cuts icon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e1c083"/>
+      <stop offset="100%" stop-color="#b98c45"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#141519" stroke="#2f3138" stroke-width="2"/>
+  <path d="M20 21c0-3 2.5-5.5 5.5-5.5S31 18 31 21s-2.5 5.5-5.5 5.5S20 24 20 21zm13 0c0-3 2.5-5.5 5.5-5.5S44 18 44 21s-2.5 5.5-5.5 5.5S33 24 33 21z" fill="url(#g)"/>
+  <path d="M24 26 14 44c-1.3 2.2-.6 5 1.6 6.3 2.2 1.3 5 .6 6.3-1.6L32 30l9.9 18.7c1.3 2.2 4.1 2.9 6.3 1.6 2.2-1.3 2.9-4.1 1.6-6.3L40 26" fill="none" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 33 38 45M38 33 26 45" stroke="#2f3138" stroke-width="2" stroke-linecap="round"/>
+</svg>
